@@ -1,0 +1,32 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
+    home: MyUI(),
+  ));
+}
+
+class MyUI extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("GUI Example")),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              "Hello Sarvesh",
+              style: TextStyle(fontSize: 24, color: Colors.blue),
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              child: Text("Click"),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
