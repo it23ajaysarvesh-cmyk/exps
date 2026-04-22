@@ -1,0 +1,45 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: MyAnim(),
+    ));
+
+class MyAnim extends StatefulWidget {
+  @override
+  State<MyAnim> createState() => _MyAnimState();
+}
+
+class _MyAnimState extends State<MyAnim> {
+  double size = 100, opacity = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("Animation")),
+      body: Center(
+        child: AnimatedContainer(
+          duration: Duration(seconds: 1),
+          width: size,
+          height: size,
+          color: Colors.blue,
+          child: Center(
+            child: AnimatedOpacity(
+              duration: Duration(seconds: 1),
+              opacity: opacity,
+              child: Text("Hello",
+                  style: TextStyle(color: Colors.white, fontSize: 25)),
+            ),
+          ),
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => setState(() {
+          size = 200;
+          opacity = 1;
+        }),
+        child: Icon(Icons.play_arrow),
+      ),
+    );
+  }
+}
